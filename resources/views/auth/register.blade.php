@@ -29,7 +29,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('number phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" autocomplete="phone" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                             <label for="additional_phone" class="col-md-4 col-form-label text-md-end">{{ __('additional phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="additional_phone" type="text" class="form-control @error('additional_phone') is-invalid @enderror" name="additional_phone" value="{{ old('additional_phone') }}" required autocomplete="phone" autofocus>
+                                <input id="additional_phone" type="text" class="form-control @error('additional_phone') is-invalid @enderror" name="additional_phone" value="{{ old('additional_phone') }}" autocomplete="phone" autofocus>
 
                                 @error('additional_phone')
                                     <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="phone" autofocus maxlength="100" minlength="2">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" autocomplete="phone" autofocus maxlength="100" minlength="2">
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">

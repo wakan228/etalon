@@ -14,10 +14,15 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    @vite(['resources/js/phone_mask/jquery-1.11.0.min.js'])
+    {{-- @vite(['public/build/assets/app-D-sv12UV.css'])
+    @vite(['public/build/assets/app-Mpkqw87m.js']) --}}
+    {{asset('assets/app-Mpkqw87m.js')}}
+    
+    <style crs="{{asset('build/assets/app-D-sv12UV.css')}}"></style>
+    {{-- @vite(['resources/js/phone_mask/jquery-1.11.0.min.js'])
     @vite(['resources/js/phone_mask/musk.js'])
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'  , 'resources/js/phone_mask/mask_optional.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'  , 'resources/js/phone_mask/mask_optional.js']) --}}
 </head>
 <body>
     <div id="app">
