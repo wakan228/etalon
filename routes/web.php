@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Admin\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,10 @@ Route::get('home', fn () => view('home'))->middleware(['auth', 'verified'])->nam
 Route::get('email/verify', [EmailVerificationPromptController::class, '__invoke'])->middleware(['auth'])->name('verification.notice');
 Route::post('email/verification-notification', [EmailVerificationNotificationController::class, '__invoke'])->middleware(['auth'])->name('verification.send');
 Route::get('email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+Route::middleware(['role:admin'])->prefix('admin')->group(function () {
+    //
+    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.main');
+    Route::get('/posts', [App\Http\Controllers\Admin\HomeController::class, 'posts'])->name('admin.posts');
+});

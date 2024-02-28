@@ -5,6 +5,9 @@
  */
 
 import './bootstrap';
+// import "./phone_mask/jquery-1.11.0.min.js";
+// import "./phone_mask/musk.js";
+// import "./phone_mask/mask_optional.js";
 import { createApp } from 'vue';
 
 /**

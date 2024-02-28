@@ -13,16 +13,26 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    {{-- @vite(['public/build/assets/app-D-sv12UV.css'])
-    @vite(['public/build/assets/app-Mpkqw87m.js']) --}}
-    {{asset('assets/app-Mpkqw87m.js')}}
-    
-    <style crs="{{asset('build/assets/app-D-sv12UV.css')}}"></style>
-    {{-- @vite(['resources/js/phone_mask/jquery-1.11.0.min.js'])
+    {{-- <script>
+        {!! Vite::content('resources/js/phone_mask/jquery-1.11.0.min.js') !!}
+    </script>
+    <style>
+        {!! Vite::content('resources/sass/app.scss') !!}
+    </style>
+   
+    <script>
+        {!! Vite::content('resources/js/app.js') !!}
+    </script>
+    <script>
+        {!! Vite::content('resources/js/phone_mask/musk.js') !!}
+    </script>
+    <script>
+        {!! Vite::content('resources/js/phone_mask/mask_optional.js') !!}
+    </script> --}}
+    @vite(['resources/js/phone_mask/jquery-1.11.0.min.js'])
     @vite(['resources/js/phone_mask/musk.js'])
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'  , 'resources/js/phone_mask/mask_optional.js']) --}}
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'  , 'resources/js/phone_mask/mask_optional.js'])
 </head>
 <body>
     <div id="app">
@@ -44,6 +54,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        @role('admin')
+									
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="{{route('admin.main')}}">Admin</a>
+                                </li>
+						@endrole
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
