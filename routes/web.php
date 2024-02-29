@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::prefix('facebook')->name('facebook.')->group(function () {
+    Route::get('auth', [App\Http\Controllers\Auth\FaceBookController::class, 'loginUsingFacebook'])->name('auth');
+    Route::get('callback', [App\Http\Controllers\Auth\FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+    Route::get('delete', [App\Http\Controllers\Auth\FaceBookController::class, 'deleteFacebook'])->middleware(['auth'])->name('delete');
+});
+Route::prefix('googleauth')->name('googleauth.')->group(function () {
+    Route::get('/auth', [App\Http\Controllers\Auth\GoogleController::class, 'redirectGoogle'])->name('auth');
+    Route::get('/callback', [App\Http\Controllers\Auth\GoogleController::class, 'calllbackGoogle'])->name('callback');
+});
+
 Route::get('home', fn () => view('home'))->middleware(['auth', 'verified'])->name('home');
 Route::get('email/verify', [EmailVerificationPromptController::class, '__invoke'])->middleware(['auth'])->name('verification.notice');
 Route::post('email/verification-notification', [EmailVerificationNotificationController::class, '__invoke'])->middleware(['auth'])->name('verification.send');

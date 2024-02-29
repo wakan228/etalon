@@ -50,9 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'phone' => ['regex:/^\+38\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}$/', 'unique:users'],
-            'additional_phone' => ['string', 'regex:/^\+38\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}$/'],
-            'address' => ['string', 'max:255'],
+            'phone' => ['nullable', 'regex:/^\+38\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}$/', 'unique:users'],
+            'additional_phone' => ['nullable', 'string', 'regex:/^\+38\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}$/'],
+            'address' => ['nullable', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],

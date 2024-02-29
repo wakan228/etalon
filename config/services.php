@@ -30,5 +30,15 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'google' => [
+        'client_id' => '790104747568-u7dej32fb85fb8fdoiq6qntps4gncolg.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'https://etalon.uptoo.top/public/googleauth/callback',
+    ],
+    'facebook' => [
+        'client_id' => '1116268169493559',
+        'client_secret' => 'ee074b4807844aea79d45dd80b7977a4', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'redirect' => 'https://etalon.uptoo.top/public/facebook/callback'
+    ],
 
 ];

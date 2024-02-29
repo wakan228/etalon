@@ -50,7 +50,8 @@
                                 </div>
                             </div>
                         </div>
-
+                        
+                        
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -65,6 +66,22 @@
                             </div>
                         </div>
                     </form>
+                    <div class="row mb-0">
+                            <div class="col-md-8">
+                                <a href="{{route('googleauth.auth')}}">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Google Auth') }}
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <a href="{{route('facebook.auth')}}">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Login with Facebook') }}
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
